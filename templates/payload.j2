@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "name": "{{ monitor.name }}",
+    "labels": {}
+  },
+  "spec": {
+    "url": "{{ monitor.url }}",
+    "interval_1_min": {},
+    "get": {},
+    "request_headers": [],
+    "on_failure_count": 2,
+    "ignore_cert_errors": false,
+    "follow_redirects": true,
+    "response_timeout": 10,
+    "source_critical_threshold": 1,
+    "external_sources": [
+      {
+        "aws": {
+          "regions": [
+            "us-west-1"
+          ]
+        }
+      }
+    ],
+    "valid_response_codes": {
+      "valid_response_codes": 
+        {% if monitor.response_codes is not none %}   
+            [
+              "{{ monitor.response_codes| join('", "') }}"
+            ]
+        {% else %}
+            [
+              "2**",
+              "3**"
+            ]
+        {% endif %}
+    }
+  }
+}

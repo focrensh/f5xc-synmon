@@ -1,0 +1,10 @@
+---
+tenant: via-demo
+namespace: demo
+monitors:
+  - name: test1
+    url: https://google.com
+    response_codes:
+      - 2**
+  - name: test3
+    url: https://google.com
