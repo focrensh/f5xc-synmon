@@ -5,6 +5,6 @@ monitors:
   - name: test1
     url: https://google.com
     response_codes:
-      - 2**
+      - 3**
   - name: test3
     url: https://google.com
